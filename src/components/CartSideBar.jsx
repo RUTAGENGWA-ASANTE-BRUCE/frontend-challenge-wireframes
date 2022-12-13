@@ -6,7 +6,7 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 const CartSideBar = () => {
-  const { activeMenu, setActiveMenu,cart,setCart } = useContext(AppContext)
+  const { activeMenu, setActiveMenu,cart,setCart,setTotalPrice,totalPrice } = useContext(AppContext)
   const handleCloseSideBar = () => {
     if (activeMenu !== undefined) {
       setActiveMenu(false);
@@ -18,6 +18,7 @@ const CartSideBar = () => {
   const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
   const deleteProduct=(i)=>{
     var myCart=cart;
+    setTotalPrice(prev=>prev-cart[i].price)
     myCart.splice(i,1);
     setCart(myCart);
   }       
@@ -57,6 +58,13 @@ const CartSideBar = () => {
             </div>))
           ):"There are no cart items"}
           </div>
+          <h5 className="text-xl text-left mt-5">Total: ${totalPrice}</h5>
+          <Link to="/check-out">
+
+          <button className="w-32 mt-2 bg-blue-500 text-white rounded-md  p-2 text-base font-semibold
+          ">Check out</button>
+          </Link>
+          
         </>
       )}
     </div>

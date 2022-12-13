@@ -3,10 +3,11 @@ import { Link} from "react-router-dom";
 import { AppContext } from "../App";
 function Product({ image, name, price }) {
 
-  const {cart,setCart } = useContext(AppContext)
+  const {cart,setCart,setTotalPrice } = useContext(AppContext)
   const addProduct=(product)=>{
     var myCart=cart;
     myCart.push(product);
+    setTotalPrice(prev=>prev+product.price)
     setCart(myCart);
   }       
   return (
