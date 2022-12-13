@@ -5,6 +5,7 @@ import * as ReactDOM from "react-dom";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import Home from './components/Home'
 import CheckOut from './components/CheckOut'
+import SignUp from './components/SignUp'
 export const AppContext = createContext({});
 function App() {
   const [count, setCount] = useState(0)
@@ -25,6 +26,7 @@ function App() {
 
       <Route path="/" element={<Home />} />
       <Route path="/check-out" element={<CheckOut />} />
+      <Route path="/ant-design-form" element={<SignUp />} />
     </Routes>
     </BrowserRouter>
    
