@@ -77,8 +77,8 @@ const AntDesignForm = () => {
       <Form.Item shouldUpdate>
         <Button  htmlType="submit"
         
-         className="bg-blue-500 text-white h-16 w-32">
-          Log in
+         className="bg-blue-500 font-semibold text-white h-16 w-32">
+          Register
         </Button>
       </Form.Item>
       
